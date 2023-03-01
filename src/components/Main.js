@@ -3,16 +3,14 @@ import { api } from '../utils/api';
 import Card from './Card';
 
 function Main(props) {
-  const [userName, setUserName] = React.useState();
-  const [userDescription, setuserDescription] = React.useState();
-  const [userAvatar, setuserAvatar] = React.useState();
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setuserDescription] = React.useState('');
+  const [userAvatar, setuserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
     Promise.all([api.getInitialCards(), api.getUserInfo()])
       .then(([cardsData, userData]) => {
-        // myUserId = userData._id;
-        // cardList.renderItems(cardsData.reverse());
         setUserName(userData.name);
         setuserAvatar(userData.avatar);
         setuserDescription(userData.about);
