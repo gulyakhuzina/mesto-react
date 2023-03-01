@@ -1,0 +1,10 @@
+.element {
+  font-family: 'Inter', Arial, sans-serif;
+  max-width: 282px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
