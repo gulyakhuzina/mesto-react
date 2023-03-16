@@ -6,7 +6,7 @@ function ImagePopup(props) {
       <div className="popup__container-img">
         <figure className="popup__figure">
           <img className="popup__open-img" src={props.card.link} alt={props.card.name} />
-          <figcaption className="popup__caption-img"></figcaption>
+          <figcaption className="popup__caption-img">{props.card.name}</figcaption>
         </figure>
         <button className="popup__close-button" onClick={props.onClose} type="button"></button>
       </div>

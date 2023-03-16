@@ -21,6 +21,11 @@ function AddPlacePopup(props) {
     });
   }
 
+  React.useEffect(() => {
+    setName('');
+    setLink('');
+  }, [props.isOpen]); 
+
   return (
     <PopupWithForm 
       name="img" 
@@ -31,9 +36,9 @@ function AddPlacePopup(props) {
       onAddPlace={props.onAddPlace}
       onSubmit={handleSubmit}
     >
-      <input id="title" name="name" className="popup__input" defaultValue="" onChange={handleChangeName} type="text" minLength="2" maxLength="30" autoFocus placeholder="Название" required />
+      <input id="title" name="name" className="popup__input" value={name || ''} onChange={handleChangeName} type="text" minLength="2" maxLength="30" autoFocus placeholder="Название" required />
       <span id="title-error" className="popup__error"></span>
-      <input id="link" name="link" className="popup__input" defaultValue="" onChange={handleChangeLink} type="url" placeholder="Ссылка на картинку" required />
+      <input id="link" name="link" className="popup__input" value={link || ''} onChange={handleChangeLink} type="url" placeholder="Ссылка на картинку" required />
       <span id="link-error" className="popup__error"></span>
     </PopupWithForm>
   );

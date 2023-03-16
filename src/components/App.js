@@ -16,18 +16,8 @@ function App() {
   const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState({});
-  const [currentUser, setCurrentUser] = React.useState('');
+  const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   api.getInitialCards()
-  //     .then((cardsData) => {
-  //       setCards(cardsData.reverse());
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
@@ -68,7 +58,7 @@ function App() {
   function handleCardDelete(card) {
     api.deleteCard(card._id)
       .then(() => {
-        setCards(cards.filter(p => p !== card));
+        setCards((state) => state.filter(p => p !== card));
       })
       .catch((err) => {
         console.log(err);
